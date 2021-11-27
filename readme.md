@@ -33,6 +33,6 @@ console.log(getCurrencyName('CNY'))
 
 ## API
 
-### `getCurrencyName(currency, options?)`
+### `getCurrencyName(currency)`
 
 [TBD]

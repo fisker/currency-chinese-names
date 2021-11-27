@@ -4,11 +4,11 @@ const minifyPlugins = [terser()]
 
 const moduleName = 'currency'
 
-function createBuild({format, minify = false, extension}) {
-  const filename = `index${minify ? '.min' : ''}.${extension}`
+function createBuild({format, minify = false, extension, entry}) {
+  const filename = `${entry}${minify ? '.min' : ''}.${extension}`
 
   return {
-    input: 'index.js',
+    input: `src/${entry}.js`,
     output: [
       {
         file: `dist/${filename}`,
@@ -21,10 +21,12 @@ function createBuild({format, minify = false, extension}) {
   }
 }
 
-export default [
-  {format: 'umd', extension: 'js'},
-  {format: 'umd', minify: true, extension: 'js'},
-  {format: 'esm', extension: 'mjs'},
-  {format: 'esm', minify: true, extension: 'mjs'},
-  {format: 'cjs', extension: 'cjs'},
-].map((options) => createBuild(options))
+export default ['index', 'all'].flatMap((entry) =>
+  [
+    {format: 'umd', extension: 'js'},
+    {format: 'umd', minify: true, extension: 'js'},
+    {format: 'esm', extension: 'mjs'},
+    {format: 'esm', minify: true, extension: 'mjs'},
+    {format: 'cjs', extension: 'cjs'},
+  ].map((options) => createBuild({...options, entry})),
+)
