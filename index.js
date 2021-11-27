@@ -24,7 +24,7 @@ const outdated = parseRawData(rawData[1])
 const currencies = {
   current,
   outdated,
-  all: [...current, outdated],
+  all: [...current, ...outdated],
 }
 
 Object.fromEntries(
