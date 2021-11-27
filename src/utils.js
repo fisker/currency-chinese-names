@@ -9,16 +9,11 @@ const encodeName = (name) =>
   )
 
 function decode(text) {
-  const array = text.split(/([A-Z]{3})/).slice(1)
-
-  const names = new Map()
-  for (let index = 0; index < array.length; index += 2) {
-    const code = array[index]
-    const name = decodeName(array[index + 1])
-    names.set(code, name)
-  }
-
-  return names
+  return new Map(
+    text
+      .match(/[A-Z]{3}[^A-Z]+/g)
+      .map((text) => [text.slice(0, 3), decodeName(text.slice(3))]),
+  )
 }
 
 function encode(currencies) {
