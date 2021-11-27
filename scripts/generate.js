@@ -1,5 +1,5 @@
 import writePrettierFile from 'write-prettier-file'
-import {encodeData} from '../src/utils.js'
+import {encode} from '../src/utils.js'
 import getData from './get-data.js'
 
 const PROJECT_ROOT = new URL('../', import.meta.url)
@@ -20,8 +20,8 @@ await writePrettierFile(
   `
     ${head}
 
-    const current = ${JSON.stringify(encodeData(current))}
-    const all = current + ${JSON.stringify(encodeData(outdated))}
+    const current = ${JSON.stringify(encode(current))}
+    const all = current + ${JSON.stringify(encode(outdated))}
 
     export default current
     export {all}

@@ -1,5 +1,5 @@
 import rawData from './raw-currency-data.js'
-import {decodeRawData, createGetCurrencyFunction} from './utils.js'
+import {decode} from './utils.js'
 
-export const currencies = decodeRawData(rawData)
-export const getCurrencyName = createGetCurrencyFunction(currencies)
+const names = decode(rawData)
+export {names}

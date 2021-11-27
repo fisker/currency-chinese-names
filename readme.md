@@ -25,14 +25,12 @@ yarn add chinese-currency
 ## 使用
 
 ```js
-import {getCurrencyName} from 'chinese-currency'
+import {names} from 'chinese-currency'
 
-console.log(getCurrencyName('CNY'))
+console.log(names('CNY'))
 //=> 人民币元
 ```
 
 ## API
 
-### `getCurrencyName(currency)`
-
-[TBD]
+### `names`

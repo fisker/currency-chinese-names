@@ -8,29 +8,21 @@ const encodeName = (name) =>
     character.codePointAt(0).toString(16).padStart(2, '0'),
   )
 
-function decodeRawData(text) {
+function decode(text) {
   const array = text.split(/([A-Z]{3})/).slice(1)
 
-  const currencies = []
+  const names = new Map()
   for (let index = 0; index < array.length; index += 2) {
     const code = array[index]
     const name = decodeName(array[index + 1])
-    currencies.push({name, code})
+    names.set(code, name)
   }
 
-  return currencies
+  return names
 }
 
-function encodeData(currencies) {
+function encode(currencies) {
   return currencies.map(({code, name}) => `${code}${encodeName(name)}`).join('')
 }
 
-const toMap = (currencies) =>
-  new Map(currencies.map(({name, code}) => [code, name]))
-
-const createGetCurrencyFunction = (currencies) => {
-  currencies = toMap(currencies)
-  return (currency) => currencies.get(currency)
-}
-
-export {decodeRawData, encodeData, createGetCurrencyFunction}
+export {encode, decode}
