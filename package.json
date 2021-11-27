@@ -16,11 +16,21 @@
   },
   "sideEffects": false,
   "type": "module",
-  "exports": "./index.js",
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs"
+  },
+  "main": "dist/index.cjs",
+  "jsdelivr": "dist/index.min.js",
+  "unpkg": "dist/index.min.js",
+  "module": "dist/index.min.mjs",
+  "browser": "dist/index.min.js",
   "files": [
-    "index.js"
+    "dist"
   ],
   "scripts": {
+    "build": "run-p build:*",
+    "build:js": "rollup --config",
     "clean": "run-p clean:*",
     "clean:dist": "del-cli dist",
     "dist": "run-p dist:*",
@@ -37,7 +47,7 @@
     "lint:prettier": "prettier \"**/*.{css,html,js,cjs,mjs,json,less,md,scss,ts,vue,yaml,yml}\" --check",
     "test": "ava",
     "test-coverage": "c8 ava",
-    "release": "run-s format test dist",
+    "release": "run-s  clean build format test dist",
     "prepare": "husky install",
     "generate": "node scripts/generate.js"
   },
@@ -67,6 +77,8 @@
     "node-fetch": "3.1.0",
     "npm-run-all": "4.1.5",
     "prettier": "2.4.1",
+    "rollup": "2.60.1",
+    "rollup-plugin-terser": "7.0.2",
     "sort-package-json": "1.53.1",
     "write-prettier-file": "2.1.1"
   },

@@ -1,7 +1,6 @@
 import test from 'ava'
 import getData from './scripts/get-data.js'
-import * as currencies from './currencies.js'
-import {getCurrencyName} from './index.js'
+import {currencies, getCurrencyName} from './index.js'
 
 const isUnique = (array) =>
   array.every((element, index) => array.indexOf(element) === index)
