@@ -4,7 +4,7 @@ import getData from './get-data.js'
 const PROJECT_ROOT = new URL('../', import.meta.url)
 const SCRIPT_FILE = import.meta.url.slice(PROJECT_ROOT.href.length)
 
-const {current, outdated} = await getData()
+const currencies = await getData()
 
 const head = `
 /*
@@ -19,7 +19,9 @@ await writePrettierFile(
   `
     ${head}
 
-    export default ${JSON.stringify(encode(current))}
+    export default ${JSON.stringify(
+      currencies.map(({code, name}) => `${code}${name}`).join(','),
+    )}
   `,
   {parser: 'meriyah'},
 )
@@ -28,7 +30,7 @@ await writePrettierFile(
   `
     ${head}
 
-    export default ${JSON.stringify(current)}
+    export default ${JSON.stringify(currencies)}
   `,
   {parser: 'meriyah'},
 )

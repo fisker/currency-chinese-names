@@ -14,7 +14,7 @@
 [package_version_badge]: https://img.shields.io/npm/v/currency-chinese-names.svg?style=flat-square
 [package_link]: https://www.npmjs.com/package/currency-chinese-names
 
-> 货币中文信息
+> "GB/T 12406-2008 表示货币和资金的代码" 货币名称
 
 ## 安装
 
