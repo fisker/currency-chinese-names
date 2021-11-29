@@ -2,7 +2,7 @@ import {terser} from 'rollup-plugin-terser'
 
 const minifyPlugins = [terser()]
 
-const moduleName = 'currency'
+const moduleName = 'currencyChineseNames'
 
 function createBuild({format, minify = false, extension, entry}) {
   const filename = `${entry}${minify ? '.min' : ''}.${extension}`
@@ -21,7 +21,7 @@ function createBuild({format, minify = false, extension, entry}) {
   }
 }
 
-export default ['index', 'all'].flatMap((entry) =>
+export default ['index'].flatMap((entry) =>
   [
     {format: 'umd', extension: 'js'},
     {format: 'umd', minify: true, extension: 'js'},
