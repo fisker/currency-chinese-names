@@ -1,13 +1,13 @@
 {
-  "name": "chinese-currency",
+  "name": "currency-chinese-names",
   "version": "0.1.1",
-  "description": "货币中文信息",
-  "homepage": "https://github.com/fisker/chinese-currency#readme",
+  "description": "GB/T 12406-2008 货币名称",
+  "homepage": "https://github.com/fisker/currency-chinese-names#readme",
   "bugs": {
-    "url": "https://github.com/fisker/chinese-currency/issues"
+    "url": "https://github.com/fisker/currency-chinese-names/issues"
   },
-  "repository": "fisker/chinese-currency",
-  "funding": "https://github.com/fisker/chinese-currency?sponsor=1",
+  "repository": "fisker/currency-chinese-names",
+  "funding": "https://github.com/fisker/currency-chinese-names?sponsor=1",
   "license": "MIT",
   "author": {
     "name": "fisker Cheung",
@@ -17,14 +17,8 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    },
-    "all": {
-      "import": "./dist/all.mjs",
-      "require": "./dist/all.cjs"
-    }
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.cjs"
   },
   "main": "dist/index.cjs",
   "jsdelivr": "dist/index.min.js",

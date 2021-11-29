@@ -37,16 +37,6 @@ function getCurrentCodes(text) {
   return [...parseCurrencyTable(table)]
 }
 
-function getOutdatedCodes(text) {
-  const table = text
-    .split('id="过时的货币代码"')[1]
-    .split('<table')[1]
-    .split('<tbody')[1]
-    .split('</table>')[0]
-
-  return [...parseCurrencyTable(table)]
-}
-
 async function getData() {
   const agent = proxy ? new HttpsProxyAgent(proxy) : undefined
 
@@ -55,12 +45,7 @@ async function getData() {
   })
   const text = await response.text()
 
-  return {
-    // 现行代码
-    current: getCurrentCodes(text),
-    // 过时的货币代码
-    outdated: getOutdatedCodes(text),
-  }
+  return getCurrentCodes(text)
 }
 
 export default getData
