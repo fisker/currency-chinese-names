@@ -70,7 +70,7 @@
     "c8": "7.13.0",
     "del-cli": "5.0.0",
     "eslint": "8.39.0",
-    "https-proxy-agent": "5.0.1",
+    "https-proxy-agent": "6.0.0",
     "husky": "8.0.3",
     "lint-staged": "13.2.2",
     "markdownlint-cli": "0.34.0",
