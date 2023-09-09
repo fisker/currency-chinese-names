@@ -80,7 +80,7 @@
     "rollup": "3.29.0",
     "rollup-plugin-terser": "7.0.2",
     "sort-package-json": "2.5.1",
-    "write-prettier-file": "3.0.2"
+    "write-prettier-file": "3.0.3"
   },
   "publishConfig": {
     "access": "public",
